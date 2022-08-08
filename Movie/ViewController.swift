@@ -14,13 +14,26 @@ struct BoxOfficeResult : Codable{
 struct DailyBoxOfficeList : Codable{
     let movieNm : String
     let audiCnt : String
+    let rank : String
+ //   let directorNm : String
 }
+//struct MovieValue : Codable{
+//    let movieListResult : MovieListResult
+//}
+//struct MovieListResult : Codable{
+//    let movieList : [MovieList]
+//}
+//struct MovieList : Codable{
+//    let repGenreNm : String
+//}
+
 // https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=9e8bb4ba542836f87361a78925f7775b&targetDt=20220720
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var table: UITableView!
     var movieData : MovieData?
-    var movieURL = "https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=9e8bb4ba542836f87361a78925f7775b&targetDt=" //20220805"
+//    var movieValue : MovieValue?
+    var movieURL = "https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=9e8bb4ba542836f87361a78925f7775b&targetDt=" //20220806"
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
@@ -34,7 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyymmdd"
         return formatter.string(from: yesterDay)
-        
+
         
     }
     func getData(){
@@ -72,10 +85,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    
+    var i = 1
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! MyTableViewCell
-        cell.movieName.text = movieData?.boxOfficeResult.dailyBoxOfficeList[indexPath.row].movieNm
+        cell.movieName.text = "\(String(describing: movieData?.boxOfficeResult.dailyBoxOfficeList[indexPath.row].rank)). \(String(describing: movieData?.boxOfficeResult.dailyBoxOfficeList[indexPath.row].movieNm))"
+    
+        cell.repGenreNm.text = movieData?.boxOfficeResult.dailyBoxOfficeList[indexPath.row].rank
+        
+        //cell.repGenreNm.text = movieValue?.movieListResult.movieList[indexPath.row].repGenreNm
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {
