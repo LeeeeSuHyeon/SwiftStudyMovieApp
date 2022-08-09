@@ -9,8 +9,10 @@ import UIKit
 
 class MyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var repGenreNm: UILabel!
     @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var rank: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

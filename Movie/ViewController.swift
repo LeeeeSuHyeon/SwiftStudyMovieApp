@@ -90,7 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! MyTableViewCell
         cell.movieName.text = "\(String(describing: movieData?.boxOfficeResult.dailyBoxOfficeList[indexPath.row].rank)). \(String(describing: movieData?.boxOfficeResult.dailyBoxOfficeList[indexPath.row].movieNm))"
     
-        cell.repGenreNm.text = movieData?.boxOfficeResult.dailyBoxOfficeList[indexPath.row].rank
+        cell.rank.text = movieData?.boxOfficeResult.dailyBoxOfficeList[indexPath.row].rank
         
         //cell.repGenreNm.text = movieValue?.movieListResult.movieList[indexPath.row].repGenreNm
         return cell

@@ -63,8 +63,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.01420672749" green="0.96841138599999999" blue="0.065300063840000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="movieName" destination="G6R-d2-kkE" id="kWE-gp-3i1"/>
-                                            <outlet property="repGenreNm" destination="Vd8-RM-6WO" id="bPc-tO-4wq"/>
+                                            <outlet property="movieName" destination="G6R-d2-kkE" id="nZ1-MG-ZwY"/>
+                                            <outlet property="rank" destination="Vd8-RM-6WO" id="2ua-uM-RmC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
